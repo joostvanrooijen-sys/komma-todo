@@ -4,16 +4,27 @@
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "sideEffects": false,
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "dev": "tsc -w -p tsconfig.json"
-  },
-  "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "dev": "tsc -w -p tsconfig.json",
+    "prepare": "npm run build"
   },
   "dependencies": {
-    "komma-contracts": "^0.1.0",
-    "komma-ui": "^0.1.0"
+    "komma-contracts": "github:joostvanrooijen-sys/komma-contracts#v0.1.0",
+    "komma-ui": "github:joostvanrooijen-sys/komma-ui#v0.1.0"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
   }
 }
